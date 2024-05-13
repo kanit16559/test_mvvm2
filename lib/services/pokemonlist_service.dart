@@ -3,7 +3,7 @@
 import 'package:dio/dio.dart';
 import 'package:test_mvvm2/core/result/app_result.dart';
 import 'package:test_mvvm2/datasource/pokemonlist_datasource.dart';
-import 'package:test_mvvm2/models/pokemon_model.dart';
+import 'package:test_mvvm2/models/pokemonlist_model/pokemon_model.dart';
 
 import '../core/utils/constant.dart';
 
@@ -20,9 +20,7 @@ class PokemonListService implements PokemonListDataSource {
   @override
   Future<AppResult<List<PokemonModel>>> fetchData(int params) async {
     try{
-      final dio = Dio();
       final response = await dio.get("${Constant.baseUrl}$pathUrl&offset=$params");
-
       final pokemonListInMap = response.data["results"] as List<dynamic>;
       List<PokemonModel> data = pokemonListInMap.map((userMap) => PokemonModel.fromJson(userMap as Map<String, dynamic>)).toList();
       return Success(value: data);

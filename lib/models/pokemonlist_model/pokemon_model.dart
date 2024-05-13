@@ -1,4 +1,4 @@
-import '../core/helper/helper.dart';
+import '../../core/helper/helper.dart';
 
 class PokemonModel {
   String? id;

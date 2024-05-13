@@ -6,10 +6,10 @@ import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:test_mvvm2/core/utils/injections.dart';
 
-import '../../../models/pokemon_model.dart';
+import '../../../models/pokemonlist_model/pokemon_model.dart';
 import '../../../repository/pokemonlist_repository.dart';
-import '../../../view_models/pokemonlist/pokemonlist_viewmodel.dart';
-import '../../../view_models/pokemonlist/state/pokemonlist_state.dart';
+import '../../../view_models/pokemonlist_viewmodel/pokemonlist_viewmodel.dart';
+import '../../../view_models/pokemonlist_viewmodel/state/pokemonlist_state.dart';
 import '../../widgets/pokemonlist_widget/header_widget.dart';
 import '../../widgets/pokemonlist_widget/item_widget.dart';
 import '../../widgets/pokemonlist_widget/loadingfooter_widget.dart';
@@ -41,24 +41,20 @@ class _PokemonListPageState extends State<PokemonListPage> {
     return ChangeNotifierProvider.value(
       value: viewModel,
       builder: (context, snapshot) {
-        return Builder(
-          builder: (context) {
-            return Scaffold(
-              // appBar: AppBar(
-              //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-              //   title: Text("MarvelView"),
-              // ),
-              backgroundColor: Colors.red,
-              body: SafeArea(
-                child: Column(
-                  children: [
-                    const HeaderWidget(),
-                    _buildBody(context),
-                  ],
-                ),
-              ),
-            );
-          }
+        return Scaffold(
+          // appBar: AppBar(
+          //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          //   title: Text("MarvelView"),
+          // ),
+          backgroundColor: Colors.red,
+          body: SafeArea(
+            child: Column(
+              children: [
+                const HeaderWidget(),
+                _buildBody(context),
+              ],
+            ),
+          ),
         );
       }
     );

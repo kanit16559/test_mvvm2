@@ -1,10 +1,10 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:test_mvvm2/view_models/pokemonlist/state/pokemonlist_state.dart';
+import 'package:test_mvvm2/view_models/pokemonlist_viewmodel/state/pokemonlist_state.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../core/result/app_result.dart';
-import '../../models/pokemon_model.dart';
+import '../../models/pokemonlist_model/pokemon_model.dart';
 import '../../repository/pokemonlist_repository.dart';
 
 class PokemonListViewModel extends ChangeNotifier {

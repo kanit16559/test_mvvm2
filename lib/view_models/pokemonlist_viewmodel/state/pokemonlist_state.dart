@@ -1,5 +1,5 @@
 
-import '../../../models/pokemon_model.dart';
+import '../../../models/pokemonlist_model/pokemon_model.dart';
 
 enum AppPokemonListStatus { initial, loading, success, failure }
 

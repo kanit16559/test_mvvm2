@@ -2,7 +2,7 @@
 
 import 'package:test_mvvm2/core/result/app_result.dart';
 import 'package:test_mvvm2/datasource/pokemonlist_datasource.dart';
-import 'package:test_mvvm2/models/pokemon_model.dart';
+import 'package:test_mvvm2/models/pokemonlist_model/pokemon_model.dart';
 import 'package:test_mvvm2/services/pokemonlist_service.dart';
 
 class PokemonListRepository implements PokemonListDataSource {

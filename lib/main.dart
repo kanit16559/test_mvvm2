@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_mvvm2/screens/views/pokemonlist_view/pokemonlist_page.dart';
 
+import 'core/router/router.dart';
 import 'core/utils/injections.dart';
 
 void main() {
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
+          onGenerateRoute: AppRouter.generateRoute,
           home: const PokemonListPage(),
         );
       }

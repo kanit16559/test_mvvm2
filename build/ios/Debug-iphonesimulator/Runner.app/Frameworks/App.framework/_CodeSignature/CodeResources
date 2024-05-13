@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		ME0cAg6cl/bTZmwXEVgMugDccUI=
+		2GzzXup9pNluGIr7vmrHpFiWoQ4=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		oG5/OGn+vw7vp/nu5DUDoZJ4nFc=
+		1egSD6MzsQ0lOR5V+4TOR2m9vY0=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,31 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		brczWuH4unpprlAjTzC34ofVhiI=
+		LT8U8tUGz4GnbKTXQcZBhnVRCfU=
+		</data>
+		<key>flutter_assets/assets/images/bg_pokeball.png</key>
+		<data>
+		7lWIWxXxORtQ7m4+x4RI+5pTBG8=
+		</data>
+		<key>flutter_assets/assets/images/ic_straighten.png</key>
+		<data>
+		Qb6FiD77SZl1ozgY1+HDqNtE1L4=
+		</data>
+		<key>flutter_assets/assets/images/ic_weight.png</key>
+		<data>
+		EuKLr9pD2g7KBY13KhojfEitAJY=
+		</data>
+		<key>flutter_assets/assets/images/pokeball.png</key>
+		<data>
+		7I6WxwYGa5VcpFR91FK7cPHzius=
+		</data>
+		<key>flutter_assets/assets/images/pokemon_example.png</key>
+		<data>
+		Ff3rs6TWRcttersxetqtJNRibgs=
+		</data>
+		<key>flutter_assets/assets/images/text_format.png</key>
+		<data>
+		nhUlPRqKMzzuddkCp4RkMEZ/6ok=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -34,7 +58,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		YGT20gksQ3iPnMZcUwk/uB3wsTM=
+		5jM9kErrIvfGwDax/Uxad62L0L8=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -55,14 +79,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AK9VrT1vIYmP534P8JLRoc2lLJQbaGDpko1FyK+MCV0=
+			gB9RORApRGYVlMj2eB8n688444xt/n4KmrUIi8UU1X4=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Sps95+7JukayebvM0TLjL1LW1VXXndpKp/O8tOm9ZR8=
+			KNwFia4tSz9PQahlKH3PnBGSMWUhM55Wo16kQ2nsg8c=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -76,7 +100,49 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			N8j1atdOJ9ovxUGJtagj70TG6tV3hRpm0AnAAkqIq3I=
+			O1dNvNQwmariL56TtwabtbRn2tbYl5xBR5cTy36u9wQ=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/bg_pokeball.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AHNWg055aargWi6d09pYPRlfzG5aJ0YDk3GM1bEbR3A=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/ic_straighten.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			YjKtSFJdPr04eBC8Ha3vr3Qkhp/CXLQ0n1SLxI/Kgqg=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/ic_weight.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			naxRwHno48UBs0g9lxbPMWzPAdpnMIgBL4PQ5MTVLf8=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/pokeball.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			paLB1/O3LDMyuY0JKhDZLpWrUYGVf7EYfROaRfd09q8=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/pokemon_example.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			YduEo1EHLN3nhjIZrlx/ZmG6oKrEk5DP6fjSZIgMUTk=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/text_format.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2GEuJwjuSzcv8ESzrBTCCPnAFx4nip3R7twBJB7MNlw=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -97,7 +163,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JlULnqU2qjps/I5yHAegRlMUYsx02y7whyJRLGac/Jk=
+			sf+MER2hKwM1ymF1+E656sM/lsFP7ZqrZL1NvVFXi2E=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

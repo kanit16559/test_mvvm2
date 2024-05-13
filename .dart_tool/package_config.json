@@ -176,6 +176,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "step_progress_indicator",
+      "rootUri": "file:///Users/Kanit.Yu/.pub-cache/hosted/pub.dev/step_progress_indicator-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "stream_channel",
       "rootUri": "file:///Users/Kanit.Yu/.pub-cache/hosted/pub.dev/stream_channel-2.1.2",
       "packageUri": "lib/",
@@ -224,7 +230,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-05-10T09:03:53.562360Z",
+  "generated": "2024-05-13T09:19:27.722404Z",
   "generator": "pub",
   "generatorVersion": "3.3.4"
 }
