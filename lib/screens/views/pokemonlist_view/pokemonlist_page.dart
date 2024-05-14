@@ -73,7 +73,7 @@ class _PokemonListPageState extends State<PokemonListPage> {
       case AppPokemonListStatus.failure: {
         widget = const Center(
           child: Text(
-              "Failure !!!"
+            "Failure !!!"
           ),
         );
       }
@@ -81,8 +81,8 @@ class _PokemonListPageState extends State<PokemonListPage> {
         List<PokemonModel> getValueList = getPokemonState.value!;
         widget = SmartRefresher(
           controller: controller.refreshController,
-          enablePullDown: true,
-          enablePullUp: true,
+          enablePullDown: controller.isEnablePullDown,
+          enablePullUp: controller.isEnablePullUp,
           onRefresh: () => controller.onRefresh(),
           onLoading: () => controller.onLoading(),
           header: const LoadingHeaderWidget(),

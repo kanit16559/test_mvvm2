@@ -17,19 +17,37 @@ class PokemonListViewModel extends ChangeNotifier {
   }
 
   PokemonListState get state => _state;
+  RefreshController get refreshController => _refreshController;
+  TextEditingController get textEditingController => _textEditingController;
+  bool get isEnablePullDown => _isEnablePullDown;
+  bool get isEnablePullUp => _isEnablePullUp;
+
 
   late PokemonListState _state;
-
-  RefreshController get refreshController => _refreshController;
-
   final RefreshController _refreshController = RefreshController();
-
+  final TextEditingController _textEditingController = TextEditingController();
   final int _offSet = 21;
+
+  bool _isEnablePullDown = true;
+  bool _isEnablePullUp = true;
 
   void initState(){
     _state = PokemonListState(
       offset: 0,
     );
+
+    _textEditingController.addListener(() {
+      if(_textEditingController.text.isNotEmpty){
+        _isEnablePullDown = false;
+        _isEnablePullUp = false;
+        notifyListeners();
+        return;
+      }
+
+      _isEnablePullDown = true;
+      _isEnablePullUp = true;
+      notifyListeners();
+    });
   }
 
   Future<void> fetchData({bool isNewFetch = false}) async {
@@ -37,6 +55,7 @@ class PokemonListViewModel extends ChangeNotifier {
       _state = _state.copyWith(
           status: AppPokemonListStatus.loading,
           value: [],
+          mainValue: [],
           offset: 0
       );
       notifyListeners();
@@ -57,11 +76,22 @@ class PokemonListViewModel extends ChangeNotifier {
         status: AppPokemonListStatus.success,
         offset: result.value.isEmpty ? _state.offset : _state.offset + _offSet,
         value: listValue,
+        mainValue: listValue
       );
     }, (error) {
       _state = _state.copyWith(status: AppPokemonListStatus.failure);
     });
 
+    notifyListeners();
+  }
+
+  void searchPokemonList(String text){
+    if(_state.status != AppPokemonListStatus.success) return;
+
+    List<PokemonModel> searchList = _state.mainValue!.where((element) => element.name.toLowerCase().contains(text.toLowerCase())).toList();
+    _state = _state.copyWith(
+      value: searchList
+    );
     notifyListeners();
   }
 

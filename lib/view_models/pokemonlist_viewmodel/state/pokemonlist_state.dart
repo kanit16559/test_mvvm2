@@ -7,22 +7,26 @@ class PokemonListState {
   AppPokemonListStatus status;
   int offset;
   List<PokemonModel>? value;
+  List<PokemonModel>? mainValue;
 
   PokemonListState({
     this.status = AppPokemonListStatus.initial,
     required this.offset,
-    this.value
+    this.value,
+    this.mainValue,
   });
 
   PokemonListState copyWith({
     AppPokemonListStatus? status,
     int? offset,
     List<PokemonModel>? value,
+    List<PokemonModel>? mainValue,
   }) {
     return PokemonListState(
       status: status ?? this.status,
       offset: offset ?? this.offset,
       value: value ?? this.value,
+      mainValue: mainValue ?? this.mainValue,
     );
   }
 

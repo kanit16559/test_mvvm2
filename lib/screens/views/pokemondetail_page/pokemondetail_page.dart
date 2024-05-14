@@ -10,6 +10,7 @@ import 'package:test_mvvm2/view_models/pokemondetail_viewmodel/pokemondetail_vie
 import '../../../models/pokemonlist_model/pokemon_model.dart';
 import '../../../repository/pokemondetail_repository.dart';
 import '../../widgets/pokemondetail_widget/detail_widget.dart';
+import 'dart:math' as math ;
 
 class PokemonDetailPage extends StatefulWidget {
   const PokemonDetailPage({super.key, required this.pokemonModel});
@@ -75,6 +76,52 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                   SizedBox(height: 24.h,),
                   Hero(
                     tag: "imageUrl_${widget.pokemonModel.id}",
+                    flightShuttleBuilder: (
+                      BuildContext flightContext,
+                      Animation<double> animation,
+                      HeroFlightDirection flightDirection,
+                      BuildContext fromHeroContext,
+                      BuildContext toHeroContext,
+                    ){
+                      final Widget widget = toHeroContext.widget;
+
+                      return ScaleTransition(
+                        scale: animation.drive(
+                          Tween<double>(begin: 0.0, end: 1.0).chain(
+                            CurveTween(
+                              curve: Interval(
+                                0.0, 1.0,
+                                curve: PeakQuadraticCurve()
+                              ),
+                            ),
+                          ),
+                        ),
+                        child: flightDirection == HeroFlightDirection.push
+                            ? RotationTransition(
+                          turns: animation,
+                          child: widget,
+                        )
+                            : FadeTransition(
+                          opacity: animation.drive(
+                            Tween<double>(begin: 0.0, end: 1.0).chain(
+                              CurveTween(
+                                curve: Interval(0.0, 1.0,
+                                    curve: PeakQuadraticCurve()),
+                              ),
+                            ),
+                          ),
+                          child: widget
+                        ),
+                      );
+
+                      // return RotationTransition(
+                      //   turns: animation,
+                      //   child: Container(
+                      //     alignment: Alignment.center,
+                      //     child: Image.network(widget.pokemonModel.imageUrl, fit: BoxFit.cover, width: 200.w, height: 200.w),
+                      //   ),
+                      // );
+                    },
                     child: Container(
                       alignment: Alignment.center,
                       child: Image.network(widget.pokemonModel.imageUrl, fit: BoxFit.cover, width: 200.w, height: 200.w),
@@ -99,5 +146,13 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
         );
       }
     );
+  }
+}
+
+class PeakQuadraticCurve extends Curve {
+  @override
+  double transform(double t) {
+    assert(t >= 0.0 && t <= 1.0);
+    return -10 * math.pow(t, 2) + 10 * t + 1;
   }
 }

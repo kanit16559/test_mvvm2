@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/router/app_router_enum.dart';
 import '../../../models/pokemonlist_model/pokemon_model.dart';
+import '../../../view_models/pokemonlist_viewmodel/pokemonlist_viewmodel.dart';
 
 class ItemWidget extends StatelessWidget {
   const ItemWidget({super.key, required this.item});
@@ -12,6 +14,8 @@ class ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final viewModelWatch = context.watch<PokemonListViewModel>();
+    final viewModelRead = context.read<PokemonListViewModel>();
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(
@@ -52,14 +56,21 @@ class ItemWidget extends StatelessWidget {
             bottom: 4,
             left: 0,
             right: 0,
-            child: Text(
-              item.name,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: const Color(0xFF1C1C1C),
-                fontSize: 10.sp,
-                fontWeight: FontWeight.w400,
-              ),),
+            child: Center(
+              child: Text.rich(
+                TextSpan(
+                  children: highlightOccurrences(
+                    item.name,
+                    viewModelRead.textEditingController.text
+                  ),
+                  style: TextStyle(
+                    color: const Color(0xFF1C1C1C),
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w400,
+                  )
+                ),
+              ),
+            ),
           ),
           Hero(
             tag: "imageUrl_${item.id}",
@@ -100,4 +111,45 @@ class ItemWidget extends StatelessWidget {
       ),
     );
   }
+
+  List<TextSpan> highlightOccurrences(String source, String query) {
+    if (query.isEmpty || !source.toLowerCase().contains(query.toLowerCase())) {
+      return [ TextSpan(text: source) ];
+    }
+    final matches = query.toLowerCase().allMatches(source.toLowerCase());
+
+    int lastMatchEnd = 0;
+
+    final List<TextSpan> children = [];
+    for (var i = 0; i < matches.length; i++) {
+      final match = matches.elementAt(i);
+
+      if (match.start != lastMatchEnd) {
+        children.add(TextSpan(
+          text: source.substring(lastMatchEnd, match.start),
+        ));
+      }
+
+      children.add(
+        TextSpan(
+          text: source.substring(match.start, match.end),
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            backgroundColor: Colors.yellow
+          ),
+        )
+      );
+
+      if (i == matches.length - 1 && match.end != source.length) {
+        children.add(TextSpan(
+          text: source.substring(match.end, source.length),
+        ));
+      }
+
+      lastMatchEnd = match.end;
+    }
+    return children;
+  }
+
 }

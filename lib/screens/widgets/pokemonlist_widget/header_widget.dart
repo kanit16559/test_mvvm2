@@ -1,12 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+
+import '../../../view_models/pokemonlist_viewmodel/pokemonlist_viewmodel.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final viewModelWatch = context.watch<PokemonListViewModel>();
+    final viewModelRead = context.read<PokemonListViewModel>();
     return Padding(
       padding: EdgeInsets.only(left: 16.w, top: 16.h, right: 16.w),
       child: Column(
@@ -26,8 +31,11 @@ class HeaderWidget extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: TextField(
-                  // controller: _searchController,
+                child: TextFormField(
+                  controller: viewModelWatch.textEditingController,
+                  onChanged: (value){
+                    viewModelRead.searchPokemonList(value);
+                  },
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.symmetric(vertical: 10),
                     filled: true,
