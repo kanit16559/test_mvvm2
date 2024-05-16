@@ -85,9 +85,10 @@ class PokemonListViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void searchPokemonList(String text){
+  void searchPokemonList(String text) async{
     if(_state.status != AppPokemonListStatus.success) return;
 
+    await Future.delayed(const Duration(milliseconds: 1500));
     List<PokemonModel> searchList = _state.mainValue!.where((element) => element.name.toLowerCase().contains(text.toLowerCase())).toList();
     _state = _state.copyWith(
       value: searchList
